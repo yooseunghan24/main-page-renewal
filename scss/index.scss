@@ -153,7 +153,11 @@ article {
     padding-right: 3%;
   }
 }
-
+.about-me .face-img-box {
+  img {
+    max-width: 20%;
+  }
+}
 /* works */
 .slide-ul {
   display: flex;
