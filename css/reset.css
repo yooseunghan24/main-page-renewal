@@ -23,3 +23,8 @@ article > h2 {
   height: 0;
   text-indent: -9999px;
 }
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}

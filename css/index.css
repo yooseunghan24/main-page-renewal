@@ -63,12 +63,7 @@ nav ul {
 
 nav ul li {
   width: 19%;
-  text-align: right;
   letter-spacing: 1.5px;
-}
-
-nav ul li:last-child {
-  margin-right: 0;
 }
 
 .side-btn {
@@ -96,6 +91,32 @@ nav ul li:last-child {
           transform: rotate(90deg);
   right: 3%;
   letter-spacing: 2px;
+}
+
+.prev-btn, .next-btn {
+  display: inline-block;
+  text-indent: -9999px;
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.prev-btn::after, .next-btn::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 0;
+  background: #ddd;
+  width: 20px;
+  height: 1px;
+}
+
+.prev-btn {
+  right: 10px;
+}
+
+.next-btn {
+  left: 10px;
 }
 
 /* article common attribute*/
