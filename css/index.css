@@ -47,7 +47,6 @@ header h1 a span.o {
 
 nav {
   position: fixed;
-  width: 50%;
   top: 5%;
   right: 3%;
 }
@@ -56,14 +55,15 @@ nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
 }
 
 nav ul li {
   width: 19%;
   letter-spacing: 1.5px;
+}
+
+nav ul li:not(:last-child) {
+  margin-right: 50px;
 }
 
 .side-btn {
@@ -122,27 +122,26 @@ nav ul li {
 /* article common attribute*/
 article {
   height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 article .center-box {
   width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 article .center-box h3 {
   font-size: 6vw;
   font-family: "Archivo Black";
+  text-align: center;
 }
 
 /* intro */
@@ -167,21 +166,48 @@ article .center-box h3 {
 }
 
 /* about */
-.about .center-box > div {
+.about-me > div {
+  padding-top: 50px;
+}
+
+.about-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.about-top > div {
   width: 50%;
+}
+
+.about-top .face-img-box {
   text-align: center;
 }
 
-.about .about-me {
-  padding-left: 3%;
+.about-top .face-img-box img {
+  max-width: 40%;
 }
 
-.about .skill {
-  padding-right: 3%;
+.about-top .face-info-box {
+  font-size: 1vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.about-me .face-img-box img {
-  max-width: 20%;
+.about-top .face-info-box p:nth-child(2) {
+  margin: 50px 0;
+}
+
+.about-bottom {
+  line-height: 2;
 }
 
 /* works */
