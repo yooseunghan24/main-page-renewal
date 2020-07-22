@@ -1,5 +1,6 @@
 @charset "utf-8";
 @import "variable";
+@import "mixin";
 #wrap {
   width: 100%;
   height: 100vh;
@@ -18,6 +19,9 @@ header {
     position: fixed;
     top: 5%;
     left: 3%;
+    @include medium {
+      top: 4%;
+    }
   }
 }
 header h1 a {
@@ -25,11 +29,18 @@ header h1 a {
   position: relative;
   width: 60px;
   height: 70px;
+  @include medium {
+    width: 20px;
+    height: 30px;
+  }
   span {
     display: block;
     position: absolute;
     text-align: center;
     font-family: $font-title;
+    @include medium {
+      font-size: 12px;
+    }
     &.y {
       top: 0;
       left: 0;
@@ -37,6 +48,9 @@ header h1 a {
     &.s {
       top: 0;
       left: 22px;
+      @include medium {
+        left: 9px;
+      }
     }
     &.h {
       bottom: 0;
@@ -45,6 +59,9 @@ header h1 a {
     &.o {
       bottom: 0;
       left: 28px;
+      @include medium {
+        left: 12px;
+      }
     }
   }
 }
@@ -58,9 +75,13 @@ nav ul {
   li {
     width: 19%;
     letter-spacing: 1.5px;
+    font-size: 1vw;
   }
   li:not(:last-child) {
     margin-right: 50px;
+    @include medium {
+      margin-right: 30px;
+    }
   }
 }
 .side-btn {
@@ -83,6 +104,7 @@ nav ul {
     transform: rotate(90deg);
     right: 3%;
     letter-spacing: 2px;
+    font-size: 0.9vw;
   }
 }
 
@@ -113,6 +135,7 @@ nav ul {
 article {
   height: 100vh;
   position: relative;
+  background: radial-gradient(800px at 40% 0%, #393939, #1b1b1d);
   .center-box {
     width: 100%;
     height: 100%;
@@ -123,15 +146,28 @@ article {
       font-size: 6vw;
       font-family: $font-title;
       text-align: center;
+      text-shadow: 0 0 10px #000;
+      letter-spacing: 7px;
     }
   }
 }
 
 /* intro */
 .iam {
+  transition: 1s;
+  transform: scale(1.2);
+  filter: blur(10px);
+  &.active {
+    transform: scale(1);
+    filter: blur(0);
+  }
   p {
     text-align: left;
     letter-spacing: 3px;
+    text-shadow: 0 0 5px #000;
+    @include medium {
+      font-size: 11px;
+    }
     &:first-child {
       padding-left: 20vw;  
     }
@@ -144,6 +180,11 @@ article {
     text-align: center;
     font-family: $font-title;
     font-size: 10vw;
+    text-shadow: 0px 0px 10px #000;
+    @include small {
+      width: 100%;
+      display: inline-block;
+    }
   }
 }
 
@@ -163,46 +204,97 @@ article {
     }
   }
   .face-info-box {
-    font-size: 1vw;
+    font-size: 1.5vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     p:nth-child(2) {
-      margin: 50px 0;
+      margin: 5% 0;
     }
   }
 }
 .about-bottom {
   line-height: 2;
+  font-size: 1vw;
+  padding: 50px 3% 0;
 }
 /* skill */
 .skill-box-wrap {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 50px 3% 0;
+  padding: 5% 3% 0;
+  @include small {
+    padding-top: 0;
+  }
   & > div {
-    width: 30%;
+    width: 22%;
     text-align: center;
+    @include small {
+      width: 29%;
+    }
     &:nth-child(2), &:nth-child(5) {
-      margin: 0 3.333%;
+      margin: 0 6.333%;
     }
     &:nth-child(2) {
       margin-bottom: 50px;
+      @include small {
+        margin-bottom: 0;
+      }
     }
   }
 }
 .skill-img-box {
-  display: flex;
-  align-items: center;
+  display: inline-block;
   margin: auto;
   width: 100px;
   height: 150px;
+  transition: .3s;
+  background: {
+    position: 100%;
+    size: 100%;
+    repeat: no-repeat;
+  }
+  @include large {
+    width: 44%;
+    height: 130px;
+  }
+  &.html {
+    background-image: url(../img/skill_html.png)
+  }
+  &.css {
+    background-image: url(../img/skill_css.png)
+  }
+  &.scss {
+    background-image: url(../img/skill_sass.png)
+  }
+  &.js {
+    background-image: url(../img/skill_js.png)
+  }
+  &.git {
+    background-image: url(../img/skill_git.png)
+  }
+  &.jquery {
+    background-image: url(../img/skill_jquery.png)
+  }
 }
 .skill-text {
-  padding-top: 10px;
+  padding-top: 1%;
+  line-height: 1.8;
+  text-shadow: 0 0 5px #000;
+  font-size: 1vw;
 }
 /* works */
+.works .center-box h3 {
+  display: none;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @include medium {
+    display: block;
+  }
+}
 .slide-btn {
   width: 100%;
   position: absolute;
@@ -225,12 +317,18 @@ article {
       width: 1px;
       height: 30px;
       background: #ddd;
+      @include small {
+        height: 18px;
+      }
     }
     &::before {
       top: -13px;
     }
     &::after {
       top: 13px;
+      @include small {
+        top: 3px;
+      }
     }
   }
   .prev-btn {
@@ -258,12 +356,12 @@ article {
 }
 .slide-ul {
   display: flex;
-  transform: translateX(270px);
+  transform: translateX(12.3vw);
   transition: .7s;
   li {
     flex-shrink: 0;
     transform: scale(0.65);
-    transition: .7s;
+    transition: .8s;
     filter: blur(5px);
     &.active {
       transform: scale(1);
@@ -273,7 +371,7 @@ article {
   }
 }
 .slide-img-box {
-  width: 1000px;
+  width: 55vw;
   img {
     max-width: 100%;
     display: block;
@@ -288,10 +386,14 @@ article {
   width: 700px;
   height: 300px;
   text-align: center;
+  @include medium {
+    width: 100vw;
+    height: 30%;
+  }
   .slide-info {
     position: absolute;
     width: 100%;
-    top: 33px;
+    top: 45px;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
@@ -308,18 +410,20 @@ article {
       word-break: break-all;
     }
     p {
-      font-size: 1vw;
+      font-size: 0.82vw;
       line-height: 1.5;
+      opacity: .5;
     }
     a {
       width: 200px;
-      padding: 10px 30px;
+      padding: 1.5% 3%;
       border: 1px solid #eee;
       border-radius: 10px;
       color: #eee;
-      margin-top: 10px;
+      margin-top: 1%;
       transition: .3s;
       display: none;
+      font-size: 0.89vw;
       &.active {
         display: inline-block
       }
@@ -333,20 +437,60 @@ article {
 /* contact */
 .contact .center-box {
   flex-direction: column;
-  align-items: center;
   & > div {
     margin-top: 8%;
     font-size: 20px;
     width: 100%;
     text-align: center;
+    a {
+      display: inline-block;
+      width: 300px;
+      height: 100px;
+      position: relative;
+    }
     a:first-child {
-      margin-right: 15%;
+      margin-right: 10%;
+      @include large {
+        margin-right: 0;
+      }
     }
   }
+}
+.contact-way > a {
+  img, span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backface-visibility: hidden;
+    transition: .5s;
+  }
+  img {
+    @include large {
+      width: 60px;
+    }
+    @include medium {
+      width: 40px;
+    }
+  }
+  span {
+    transform: translate(-50%, -50%) rotateY(-180deg);
+    font-size: 1vw;
+  }
+  &:hover {
+    img {
+      transform: translate(-50%, -50%) rotateY(-180deg);
+    }
+    span {
+      transform: translate(-50%, -50%) rotateY(0);
+    }
+  }
+
 }
 .contact > p {
   position: absolute;
   bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
+  font-size: 1vw;
 }

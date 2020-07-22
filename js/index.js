@@ -3,6 +3,12 @@ const age = document.querySelector('.age');
 const date = new Date();
 age.textContent = date.getFullYear() - 1996 + 1;
 
+// 로딩 됐을 때 인트로 효과
+const iam = document.querySelector('.iam');
+window.addEventListener('load', () => {
+  iam.classList.add('active');
+})
+
 // wheel 이벤트
 const wrap = document.querySelector('.moving-wrap');
 const article = document.querySelectorAll('article');
