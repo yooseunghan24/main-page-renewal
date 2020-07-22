@@ -49,26 +49,32 @@ const nextBtn = document.querySelector('.next-btn');
 const slide = document.querySelector('.slide-ul');
 const slideList = document.querySelectorAll('.slide-ul li');
 const slideInfo = document.querySelectorAll('.slide-info');
+const viewSite = document.querySelectorAll('.slide-info a');
 let slideIndex = 0;
+
 function prevFnc() {
   slideIndex === 0 ? slideIndex = slideList.length-1 : slideIndex -= 1;
   for(let i=0; i<slideList.length; i++) {
     slideList[i].classList.remove('active');
     slideInfo[i].classList.remove('active');
+    viewSite[i].classList.remove('active');
   }
   slideList[slideIndex].classList.add('active');
   slideInfo[slideIndex].classList.add('active');
-  slide.style.marginLeft = `${-70*slideIndex}%`;
+  viewSite[slideIndex].classList.add('active');
+  slide.style.marginLeft = `${(-slideList[0].clientWidth)*slideIndex}px`;
 }
 function nextFnc() {
   slideIndex === slideList.length-1 ? slideIndex = 0 : slideIndex += 1;
   for(let i=0; i<slideList.length; i++) {
     slideList[i].classList.remove('active');
     slideInfo[i].classList.remove('active');
+    viewSite[i].classList.remove('active');
   }
   slideList[slideIndex].classList.add('active');
   slideInfo[slideIndex].classList.add('active');
-  slide.style.marginLeft = `${-70*slideIndex}%`;
+  viewSite[slideIndex].classList.add('active');
+  slide.style.marginLeft = `${(-slideList[0].clientWidth)*slideIndex}px`;
 }
 
 prevBtn.addEventListener('click', prevFnc);

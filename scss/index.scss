@@ -305,10 +305,28 @@ article {
       font-family: $font-title;
       color: #fff;
       line-height: 1;
+      word-break: break-all;
     }
     p {
       font-size: 1vw;
       line-height: 1.5;
+    }
+    a {
+      width: 200px;
+      padding: 10px 30px;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      color: #eee;
+      margin-top: 10px;
+      transition: .3s;
+      display: none;
+      &.active {
+        display: inline-block
+      }
+      &:hover {
+        background: #eee;
+        color: #333;
+      }
     }
   }
 }

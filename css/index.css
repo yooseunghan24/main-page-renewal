@@ -410,11 +410,33 @@ article .center-box h3 {
   font-family: "Archivo Black";
   color: #fff;
   line-height: 1;
+  word-break: break-all;
 }
 
 .slide-info-wrap .slide-info p {
   font-size: 1vw;
   line-height: 1.5;
+}
+
+.slide-info-wrap .slide-info a {
+  width: 200px;
+  padding: 10px 30px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  color: #eee;
+  margin-top: 10px;
+  -webkit-transition: .3s;
+  transition: .3s;
+  display: none;
+}
+
+.slide-info-wrap .slide-info a.active {
+  display: inline-block;
+}
+
+.slide-info-wrap .slide-info a:hover {
+  background: #eee;
+  color: #333;
 }
 
 /* contact */
