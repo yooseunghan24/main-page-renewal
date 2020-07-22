@@ -57,12 +57,16 @@ header h1 a {
     &.h {
       bottom: 0;
       left: 0;
+      @include medium {
+        bottom: 6px;
+      }
     }
     &.o {
       bottom: 0;
       left: 28px;
       @include medium {
         left: 12px;
+        bottom: 6px;
       }
     }
   }
@@ -84,13 +88,7 @@ nav ul {
   justify-content: space-between;
   li {
     letter-spacing: 1.5px;
-    font-size: 1vw;
-    @include large {
-      font-size: 1.5vw;
-    }
-    @include medium {
-      font-size: 2.4vw;
-    }
+    font-size: 16px;
   }
 }
 .side-btn {
@@ -113,7 +111,7 @@ nav ul {
     transform: rotate(90deg);
     right: 3%;
     letter-spacing: 2px;
-    font-size: 0.9vw;
+    font-size: 11px;
   }
 }
 
@@ -131,6 +129,9 @@ nav ul {
     background: #ddd;
     width: 20px;
     height: 1px;
+    @include medium {
+      width: 12px;
+    }
   }
 }
 .up-btn {
@@ -138,6 +139,9 @@ nav ul {
 }
 .down-btn {
   left: 10px;
+  @include medium {
+    left: 0;
+  }
 }
 
 /* article common attribute*/
@@ -152,11 +156,14 @@ article {
     justify-content: center;
     align-items: center;
     & h3 {
-      font-size: 6vw;
+      font-size: 64px;
       font-family: $font-title;
       text-align: center;
-      text-shadow: 0 0 10px #000;
+      text-shadow: 0 0 3px rgba(0,0,0,0.5);
       letter-spacing: 7px;
+      @include medium {
+        font-size: 34px;
+      }
     }
   }
 }
@@ -190,6 +197,7 @@ article {
     font-family: $font-title;
     font-size: 10vw;
     text-shadow: 0px 0px 10px #000;
+    letter-spacing: 3px;
     @include small {
       width: 100%;
       display: inline-block;
@@ -199,7 +207,7 @@ article {
 
 /* about */
 .about-me > div {
-  padding-top: 50px;
+  padding: 7% 4% 0;
 }
 .about-top {
   display: flex;
@@ -210,18 +218,19 @@ article {
     text-align: center;
     img {
        max-width: 40%;
+       box-shadow: 0 0 3px 1px rgba(0,0,0,0.5);
     }
   }
   .face-info-box {
-    font-size: 1.5vw;
+    font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     @include large {
-      font-size: 2vw;
+      font-size: 18px;
     }
     @include medium {
-      font-size: 2.5vw;
+      font-size: 15px;
     }
     p:nth-child(2) {
       margin: 5% 0;
@@ -230,13 +239,12 @@ article {
 }
 .about-bottom {
   line-height: 2;
-  font-size: 1vw;
-  padding: 50px 3% 0;
+  font-size: 18px;
   @include large {
-    font-size: 1.5vw;
+    font-size: 16px;
   }
   @include medium {
-    font-size: 2vw;
+    font-size: 14px;
   }
 }
 /* skill */
@@ -245,23 +253,17 @@ article {
   flex-wrap: wrap;
   justify-content: center;
   padding: 5% 3% 0;
-  @include small {
+  @include medium {
     padding-top: 0;
   }
   & > div {
-    width: 22%;
+    width: 24%;
     text-align: center;
-    @include small {
+    @include medium {
       width: 29%;
     }
     &:nth-child(2), &:nth-child(5) {
-      margin: 0 6.333%;
-    }
-    &:nth-child(2) {
-      margin-bottom: 50px;
-      @include small {
-        margin-bottom: 0;
-      }
+      margin: 0 4%;
     }
   }
 }
@@ -279,6 +281,9 @@ article {
   @include large {
     width: 44%;
     height: 130px;
+  }
+  @include medium {
+    height: 90px;
   }
   &.html {
     background-image: url(../img/skill_html.png)
@@ -303,7 +308,10 @@ article {
   padding-top: 1%;
   line-height: 1.8;
   text-shadow: 0 0 5px #000;
-  font-size: 1vw;
+  font-size: 16px;
+  @include medium {
+    font-size: 12px;
+  }
 }
 /* works */
 .works .center-box h3 {
@@ -323,6 +331,9 @@ article {
   left: 0;
   transform: translateY(-50%);
   z-index: 1;
+  @include medium {
+    top: 48.5%;
+  }
   & > button {
     position: absolute;
     top: 0;
@@ -409,12 +420,13 @@ article {
   text-align: center;
   @include medium {
     width: 100vw;
-    height: 30%;
+    height: 20%;
+    bottom: 24%;
   }
   .slide-info {
     position: absolute;
     width: 100%;
-    top: 45px;
+    top: 30px;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
@@ -426,18 +438,18 @@ article {
       opacity: 1;
     }
     h4 {
-      font-size: 4vw;
+      font-size: 74px;
       letter-spacing: 2px;
       font-family: $font-title;
       color: #fff;
       line-height: 1;
       word-break: break-all;
-      @include small {
-        font-size: 6vw;
+      @include medium {
+        font-size: 26px;
       }
     }
     p {
-      font-size: 0.82vw;
+      font-size: 16px;
       line-height: 1.5;
       opacity: .5;
       @include large {
@@ -453,7 +465,10 @@ article {
       margin-top: 1%;
       transition: .3s;
       display: none;
-      font-size: 0.89vw;
+      font-size: 16px;
+      @include medium {
+        font-size: 12px;
+      }
       &.active {
         display: inline-block
       }
@@ -505,7 +520,7 @@ article {
   }
   span {
     transform: translate(-50%, -50%) rotateY(-180deg);
-    font-size: 1vw;
+    font-size: 16px;
   }
   &:hover {
     img {
@@ -522,5 +537,8 @@ article {
   bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 1vw;
+  font-size: 16px;
+  @include medium {
+    font-size: 12px;
+  }
 }
