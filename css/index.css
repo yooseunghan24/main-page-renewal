@@ -25,7 +25,10 @@ header h1 {
 
 @media (max-width: 768px) {
   header h1 {
-    top: 4%;
+    top: 1%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
   }
 }
 
@@ -92,27 +95,44 @@ nav {
   position: fixed;
   top: 5%;
   right: 3%;
+  width: 500px;
+}
+
+@media (max-width: 1024px) {
+  nav {
+    width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    width: 90vw;
+  }
 }
 
 nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 nav ul li {
-  width: 19%;
   letter-spacing: 1.5px;
   font-size: 1vw;
 }
 
-nav ul li:not(:last-child) {
-  margin-right: 50px;
+@media (max-width: 1024px) {
+  nav ul li {
+    font-size: 1.5vw;
+  }
 }
 
 @media (max-width: 768px) {
-  nav ul li:not(:last-child) {
-    margin-right: 30px;
+  nav ul li {
+    font-size: 2.4vw;
   }
 }
 
@@ -289,6 +309,18 @@ article .center-box h3 {
           justify-content: center;
 }
 
+@media (max-width: 1024px) {
+  .about-top .face-info-box {
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-top .face-info-box {
+    font-size: 2.5vw;
+  }
+}
+
 .about-top .face-info-box p:nth-child(2) {
   margin: 5% 0;
 }
@@ -297,6 +329,18 @@ article .center-box h3 {
   line-height: 2;
   font-size: 1vw;
   padding: 50px 3% 0;
+}
+
+@media (max-width: 1024px) {
+  .about-bottom {
+    font-size: 1.5vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-bottom {
+    font-size: 2vw;
+  }
 }
 
 /* skill */
@@ -561,6 +605,12 @@ article .center-box h3 {
   transition: .8s;
 }
 
+@media (max-width: 768px) {
+  .slide-info-wrap .slide-info {
+    top: 0;
+  }
+}
+
 .slide-info-wrap .slide-info.active {
   opacity: 1;
 }
@@ -574,10 +624,22 @@ article .center-box h3 {
   word-break: break-all;
 }
 
+@media (max-width: 425px) {
+  .slide-info-wrap .slide-info h4 {
+    font-size: 6vw;
+  }
+}
+
 .slide-info-wrap .slide-info p {
   font-size: 0.82vw;
   line-height: 1.5;
   opacity: .5;
+}
+
+@media (max-width: 1024px) {
+  .slide-info-wrap .slide-info p {
+    margin: 2% 0;
+  }
 }
 
 .slide-info-wrap .slide-info a {

@@ -34,6 +34,26 @@ window.addEventListener('wheel', (e) => {
   }, 100)
 })
 
+// 터치 스크롤 이벤트
+let startY=0;
+let moveY=0;
+let distance = 0;
+let isTouched = false;
+window.addEventListener('touchstart', (e) => {
+  isTouched = true;
+  startY = e.touches[0].clientY;
+});
+window.addEventListener('touchend', () => (isTouched = false));
+window.addEventListener('touchmove', (e) => {
+  if(!isTouched) return;
+  moveY = e.touches[0].clientY;
+  distance = startY - moveY;
+  clearTimeout(wheelFnc);
+  wheelFnc = setTimeout(() => {
+    distance > 0 ? wheelDown() : wheelUp();
+  }, 100)
+});
+
 // 메뉴 클릭 이벤트
 const navList = document.querySelectorAll('nav ul li');
 navList.forEach((ele, idx) => {
